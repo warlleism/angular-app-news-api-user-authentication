@@ -1,20 +1,49 @@
-<form [formGroup]="loginForm">
-  <label for="username">Usuário:</label>
-  <input type="text" id="username" formControlName="username" />
+<div class="main-container">
+  <form [formGroup]="loginForm" class="form-container">
+    <div class="title">
+      <h1>Login</h1>
+    </div>
 
-  <label for="password">Senha:</label>
-  <input type="password" id="password" formControlName="password" />
+    <div class="main-container-inputs">
+      <div class="container-input">
+        <label for="username">Usuário</label>
+        <div class="container-icon">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="email"
+          ></mat-icon>
+          <input type="text" id="username" formControlName="username" />
+        </div>
+      </div>
 
-  <button type="button" (click)="loginClick()">
-    {{ authorizedLogin ? "Logout" : "Login" }}
-  </button>
+      <div class="container-input">
+        <label for="password">Senha</label>
+        <div class="container-icon">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="lock"
+          ></mat-icon>
+          <input type="password" id="password" formControlName="password" />
+        </div>
+        <p class="forgot-password">Esqueceu sua senha?</p>
+      </div>
+      <button type="button" (click)="loginClick()">Entrar</button>
+    </div>
 
-  <ngx-spinner
-    bdColor="rgba(51,51,51,0.8)"
-    size="medium"
-    color="rgb(15, 230, 109)"
-    type="ball-scale-multiple"
-  >
-    <p style="font-size: 20px; color: white">Entrando...</p>
-  </ngx-spinner>
-</form>
+    <div class="title">
+      <p>Ou Cadastre-se Através Do</p>
+      <h2 style="cursor: pointer">Cadastrar</h2>
+    </div>
+  </form>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#0062ff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Entrando...</p>
+</ngx-spinner>

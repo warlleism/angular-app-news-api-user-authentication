@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PrivateComponent, HomeComponent],
@@ -17,7 +18,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
