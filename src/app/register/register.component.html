@@ -1,7 +1,7 @@
 <div class="main-container">
-  <form [formGroup]="loginForm" class="form-container">
+  <form [formGroup]="registerForm" class="form-container">
     <div class="title">
-      <h1>Login</h1>
+      <h1>Cadastrar</h1>
     </div>
 
     <div class="main-container-inputs">
@@ -29,12 +29,14 @@
         </div>
         <p class="forgot-password">Esqueceu sua senha?</p>
       </div>
-      <button type="button" (click)="loginClick()">Entrar</button>
+      <button type="button" (click)="registerClick()">Cadastrar</button>
     </div>
 
     <div class="title">
-      <p>Ou Cadastre-se Através Do</p>
-      <h2 style="cursor: pointer; font-weight: 700;" routerLink="/register">Cadastrar</h2>
+      <p>Faça o Login Através Do</p>
+      <h2 style="cursor: pointer; font-weight: 700" routerLink="/login">
+        Login
+      </h2>
     </div>
   </form>
 </div>

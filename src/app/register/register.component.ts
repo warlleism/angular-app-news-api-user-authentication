@@ -5,13 +5,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.sass'],
 })
-export class LoginComponent implements OnInit {
-  authorizedLogin = false;
-  loginForm: FormGroup = this.fb.group({
+export class RegisterComponent implements OnInit {
+  authorizedregister = false;
+  registerForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
@@ -27,18 +27,18 @@ export class LoginComponent implements OnInit {
   }
 
   initializeForm() {
-    this.loginForm = this.fb.group({
+    this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  loginClick() {
-    const { username, password } = this.loginForm.value;
+  registerClick() {
+    const { username, password } = this.registerForm.value;
     this.spinner.show();
     if (username === 'warlleism' && password === '123') {
-      localStorage.setItem('login', 'sim');
-      this.router.navigate(['/home']);
+      localStorage.setItem('register', 'sim');
+      this.router.navigate(['/private']);
       setTimeout(() => {
         this.spinner.hide();
       }, 2000);
