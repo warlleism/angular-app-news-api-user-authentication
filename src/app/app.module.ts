@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { DatePipe } from '@angular/common';
     NgxSpinnerModule,
     MatIconModule,
     HttpClientModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

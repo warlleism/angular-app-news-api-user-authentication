@@ -1,3 +1,25 @@
+.skeleton-container-1
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  width: 45%
+  height: 100%
+
+  .skeleton1
+    height: 45%
+    width: 95%
+    background: #00000010
+
+  .skeleton2
+    height: 45%
+    width: 95%
+    background: #00000010
+
+.skeleton3
+  width: 65%
+  height: 100%
+  background: #00000010
+
 .main-container
   margin: 0 auto
   width: 50%
@@ -5,6 +27,9 @@
   flex-direction: column
   justify-content: center
   align-items: center
+
+  @media screen and (max-width: 868px)
+    width: 90%
 
   .first-container
     display: flex
@@ -27,19 +52,34 @@
       gap: 10px
 
       div:nth-child(1)
-        color: #000000
+        color: #000000de
         font-size: 1.8rem
         font-weight: 700
 
+        @media screen and (max-width: 1240px)
+          font-size: 1.5rem
+
+        @media screen and (max-width: 720px)
+          font-size: 1.2rem
+
       div:nth-child(2)
-        color: #1b1b1b88
+        color: #050505a9
         font-size: 1.3rem
         font-weight: 500
+
+        @media screen and (max-width: 1240px)
+          font-size: 1rem
+
+        @media screen and (max-width: 552px)
+          font-size: .7rem
 
       div:nth-child(3)
         color: #1b1b1b
         font-size: 1rem
         font-weight: 400
+
+        @media screen and (max-width: 552px)
+          font-size: .9rem
 
     .container-info-2
       width: 65%
@@ -84,17 +124,26 @@
       img
         width: 100%
         height: 200px
+        object-fit: cover
 
       div:nth-child(2)
-        color: #000000
+        color: #000000de
         font-size: 1.3rem
         font-weight: 700
+
+        @media screen and (max-width: 1344px)
+          font-size: .9rem
+
+        @media screen and (max-width: 466px)
+          font-size: .7rem
 
       div:nth-child(3)
         margin-top: 10px
         color: #000000a9
         font-size: 1rem
-        font-weight: 400
+
+        @media screen and (max-width: 1344px)
+          font-size: .8rem
 
   .third-container
     width: 100%
@@ -112,7 +161,7 @@
       text-decoration: none
 
       div:nth-child(1)
-        color: #000000
+        color: #000000de
         font-size: 1.3rem
         font-weight: 700
 
@@ -140,12 +189,12 @@
       gap: 10px
 
       div:nth-child(1)
-        color: #000000
+        color: #000000de
         font-size: 1.8rem
         font-weight: 700
 
       div:nth-child(2)
-        color: #1b1b1b88
+        color: #050505a9
         font-size: 1.3rem
         font-weight: 500
 
@@ -168,7 +217,59 @@
         align-self: flex-start
 
       div
-        color: #00000088
+        color: #000000de
         font-size: .9rem
         font-weight: 400
         align-self: flex-start
+
+  .fifth-container
+    width: 100%
+    display: flex
+    margin: 10px 0
+    align-items: center
+    text-decoration: none
+    flex-direction: column
+    gap: 10px
+
+    .container-info-1
+      width: 100%
+      height: 100%
+      display: flex
+      justify-content: flex-start
+      flex-direction: column
+      gap: 10px
+
+      div:nth-child(1)
+        color: #000000de
+        font-size: 1.8rem
+        font-weight: 700
+
+      div:nth-child(2)
+        color: #050505a9
+        font-size: 1.3rem
+        font-weight: 500
+
+      div:nth-child(3)
+        color: #1b1b1b
+        font-size: 1rem
+        font-weight: 600
+        align-self: flex-start
+
+      div:nth-child(4)
+        color: #00000088
+        font-size: .9rem
+        font-weight: 600
+        align-self: flex-start
+
+    .container-info-2
+      width: 100%
+      height: 100%
+      display: flex
+      gap: 5px
+      flex-direction: column
+
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        align-self: center

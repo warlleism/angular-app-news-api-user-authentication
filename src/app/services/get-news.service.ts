@@ -8,7 +8,7 @@ import { NewsData } from '../interfaces/INewsData';
 })
 export class GetNewsService {
   private apiUrl =
-    'https://newsapi.org/v2/everything?q=tesla&from=2023-12-09&sortBy=publishedAt&apiKey=e9bdf4e636a04b4c9514313f0808388d';
+    'https://newsapi.org/v2/everything?q=apple&from=2024-01-09&to=2024-01-09&sortBy=popularity&apiKey=e9bdf4e636a04b4c9514313f0808388d';
 
   constructor(private http: HttpClient) {}
 

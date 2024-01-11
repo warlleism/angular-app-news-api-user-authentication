@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { GetNewsService } from '../services/get-news.service';
 import { NewsData } from '../interfaces/INewsData';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -16,7 +15,6 @@ export class HomeComponent {
   constructor(
     private getNewsService: GetNewsService,
     private spinner: NgxSpinnerService,
-    private router: Router,
     private datePipe: DatePipe
   ) {}
 
@@ -25,21 +23,16 @@ export class HomeComponent {
       this.spinner.show();
       this.getNewsService.getNews().subscribe((response: NewsData) => {
         response.articles.forEach((article) => {
-          const formattedDate = this.datePipe.transform(
-            article.publishedAt,
-            'yyyy/MM/dd : HH:mm'
-          );
-
+          const formattedDate = this.datePipe.transform( article.publishedAt, 'yyyy/MM/dd : HH:mm');
           if (formattedDate !== null) {
             article.publishedAt = formattedDate;
-          } else {
-            console.error('Erro ao formatar a data');
-          }
+          } else {console.error('Erro ao formatar a data')}
         });
 
-        console.log(response);
-        this.data = response;
-        this.spinner.hide();
+        setTimeout(() => {
+          this.data = response;
+          this.spinner.hide();
+        }, 3000);
       });
     }
   }
