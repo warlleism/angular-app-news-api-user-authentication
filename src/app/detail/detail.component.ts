@@ -8,12 +8,14 @@ import { map } from 'rxjs';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.sass'],
 })
+
 export class DetailComponent implements OnInit {
   items: any[] = [];
 
   constructor(private store: Store<{ app: IAppState }>) {}
 
   ngOnInit(): void {
+
     this.store
       .select('app')
       .pipe(map((appState) => appState.items))

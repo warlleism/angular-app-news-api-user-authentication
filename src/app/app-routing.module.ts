@@ -26,7 +26,7 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'datail',
+    path: 'detail',
     component: DetailComponent,
     canActivate: [AuthorizationGuard],
   },

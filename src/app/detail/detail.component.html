@@ -1,12 +1,19 @@
 <app-header />
 
-<div *ngFor="let item of items">
-  <h2>{{ item.title }}</h2>
-  <p>Author: {{ item.author }}</p>
-  <p>{{ item.description }}</p>
-  <p>Published At: {{ item.publishedAt }}</p>
-  <p>Source: {{ item.source.name }}</p>
-  <img src="{{ item.urlToImage }}" alt="Image" style="max-width: 100%; height: auto;">
-  <p>Content: {{ item.content }}</p>
-  <a href="{{ item.url }}" target="_blank">Read more</a>
+<div *ngFor="let item of items" class="container">
+
+  <div class="container-img">
+    <div>
+      <p>{{ item.author }}</p>
+      <p>{{ item.publishedAt }}</p>
+    </div>
+    <img src="{{ item.urlToImage }}" alt="Image" />
+  </div>
+
+  <div class="texts">
+    <h2>{{ item.title }}</h2>
+    <div>{{ item.description }}</div>
+    <div>{{ item.content }}</div>
+    <a href="{{ item.url }}" target="_blank">Saiba mais</a>
+  </div>
 </div>

@@ -3,9 +3,7 @@ import { GetNewsService } from '../services/get-news.service';
 import { NewsData } from '../interfaces/INewsData';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DatePipe } from '@angular/common';
-import { Store } from '@ngrx/store';
-import { IAppState, adicionarNovoItem } from '../store/app.state';
-import { Router } from '@angular/router';
+import { SetDetailService } from '../services/set-detail.service';
 
 @Component({
   selector: 'app-home',
@@ -17,17 +15,10 @@ export class HomeComponent {
 
   constructor(
     private getNewsService: GetNewsService,
+    private newsInteractionService: SetDetailService,
     private spinner: NgxSpinnerService,
-    private datePipe: DatePipe,
-    private store: Store<{ app: IAppState }>,
-    private router: Router
+    private datePipe: DatePipe
   ) {}
-
-  adicionarItem(data: any) {
-    const novoItem = data;
-    this.store.dispatch(adicionarNovoItem({ item: novoItem }));
-    this.router.navigate(['/datail']);
-  }
 
   ngOnInit(): void {
     if (this.data === undefined) {
@@ -48,8 +39,12 @@ export class HomeComponent {
         setTimeout(() => {
           this.data = response;
           this.spinner.hide();
-        }, 3000);
+        }, 600);
       });
     }
+  }
+
+  adicionarItem(newsItem: any) {
+    this.newsInteractionService.handleNewsInteraction(newsItem);
   }
 }
