@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthorizationGuard } from './_guard/autorization.guard';
 import { RegisterComponent } from './register/register.component';
+import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'datail',
+    component: DetailComponent,
+    canActivate: [AuthorizationGuard],
   },
   {
     path: '**',

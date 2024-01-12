@@ -26,14 +26,12 @@ export class AuthorizationGuard implements CanActivate {
 
   private isUserAuthenticated(): Promise<boolean> {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        const autorization = localStorage.getItem('login');
-        if (autorization) {
-          resolve(true);
-        } else {
-          resolve(false);
-        }
-      }, 2000);
+      const autorization = localStorage.getItem('login');
+      if (autorization) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
     });
   }
 }

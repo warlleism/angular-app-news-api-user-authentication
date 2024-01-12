@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/app.state';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     HomeComponent,
     RegisterComponent,
     HeaderComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,12 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     NgxSpinnerModule,
     MatIconModule,
     HttpClientModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    StoreModule.forRoot({ app: appReducer }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
