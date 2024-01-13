@@ -8,13 +8,13 @@ import { map } from 'rxjs';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.sass'],
 })
-
 export class DetailComponent implements OnInit {
   items: any[] = [];
 
   constructor(private store: Store<{ app: IAppState }>) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
 
     this.store
       .select('app')

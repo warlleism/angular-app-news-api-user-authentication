@@ -5,6 +5,36 @@
       <div style="color: #9b9b9b">Word</div>
       News
     </h1>
+    <div [ngClass]="{ 'expanded-search': isSearchExpanded }" class="input-icon">
+      <div
+        [ngClass]="{ 'expanded-icon': isSearchExpanded }"
+        class="container-icon"
+      >
+        <mat-icon
+          (click)="expandSearch()"
+          style="font-size: 1.7rem"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          [fontIcon]="isSearchExpanded ? 'close' : 'search'"
+        ></mat-icon>
+      </div>
+      <input
+        type="text"
+        style="
+          background-color: #242424;
+          display: none;
+          width: 90%;
+          color: #fff;
+          outline: none;
+          font-size: 1.3rem;
+          border: none;
+          border-bottom: solid #505050 2px;
+          height: 80%;
+        "
+        id="input"
+      />
+      <div style="width: 5%"></div>
+    </div>
     <button type="button" (click)="isLogin ? logOutClick() : loginClick()">
       {{ isLogin ? "Sair" : "Entrar" }}
     </button>

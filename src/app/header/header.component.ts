@@ -9,6 +9,18 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   constructor(private router: Router) {}
 
+  isLogin: boolean = false;
+  isSearchExpanded: boolean = false;
+
+  ngOnInit(): void {
+    let isLogin = localStorage.getItem('login');
+    if (isLogin === 'sim') {
+      this.isLogin = true;
+    } else {
+      this.isLogin = false;
+    }
+  }
+
   loginClick() {
     this.router.navigate(['/login']);
   }
@@ -18,14 +30,11 @@ export class HeaderComponent {
     this.router.navigate(['/login']);
   }
 
-  isLogin: boolean = false;
-
-  ngOnInit(): void {
-    let isLogin = localStorage.getItem('login');
-    if (isLogin === 'sim') {
-      this.isLogin = true;
-    } else {
-      this.isLogin = false;
+  expandSearch() {
+    this.isSearchExpanded = !this.isSearchExpanded;
+    const inputElement = document.getElementById('input');
+    if (inputElement) {
+      inputElement.style.display = this.isSearchExpanded ? 'block' : 'none';
     }
   }
 }

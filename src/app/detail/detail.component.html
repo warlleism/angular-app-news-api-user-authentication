@@ -1,7 +1,6 @@
 <app-header />
 
 <div *ngFor="let item of items" class="container">
-
   <div class="container-img">
     <div>
       <p>{{ item.author }}</p>
@@ -9,7 +8,6 @@
     </div>
     <img src="{{ item.urlToImage }}" alt="Image" />
   </div>
-
   <div class="texts">
     <h2>{{ item.title }}</h2>
     <div>{{ item.description }}</div>
