@@ -6,40 +6,50 @@
 
   .main-search-container
     display: flex
+    justify-content: space-between
+    align-items: flex-start
     flex-direction: column
     align-self: center
     position: absolute
-    height: 80vh
-    top: 90px
-    overflow-y: scroll
-    width: 80%
-    gap: 10px
+    height: 70vh
+    top: 60px
+    overflow: hidden
+    width: 900px
+    gap: 2px
     background: #1e1d1d
+    border-radius: 5px
 
     .search-container
       display: flex
       flex-direction: column
       width: 100%
-      height: 100%
+      height: 96%
       cursor: pointer
 
       .container-content
         display: flex
-        height: 200px
+        width: 100%
+        height: 100%
         gap: 10px
+        align-self: center
+        box-sizing: border-box
+        padding: 10px
+        background: #5a5a5a49
 
+      .container-text
+        width: 80%
         div:nth-child(1)
           color: #ffffff
-          font-size: 2.3rem
+          font-size: 1.5rem
 
         div:nth-child(2)
-          font-size: 1.5rem
+          font-size: 1rem
           color: #ffffff
 
-        img
-          border-radius: 5px
-          width: 200px
-          height: 200px
+      img
+        width: 20%
+        border-radius: 5px
+        height: 100%
 
   .container-icon
     display: flex
@@ -51,7 +61,7 @@
     cursor: pointer
 
   .expanded-icon
-    width: 5%
+    width: 10%
     background: #242424
     color: #ffffff
 

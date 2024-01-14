@@ -5,9 +5,14 @@
       <div style="color: #9b9b9b">Word</div>
       News
     </h1>
-    <div [ngClass]="{ 'expanded-search': isSearchExpanded }" class="input-icon">
+    <div
+      [ngClass]="{ 'expanded-search': isSearchExpanded }"
+      class="input-icon"
+      style="cursor: pointer"
+      (click)="isSearchExpanded ? expandSearch(false) : expandSearch(true)"
+    >
       <div
-        (click)="expandSearch()"
+        style="pointer-events: none"
         [ngClass]="{ 'expanded-icon': isSearchExpanded }"
         class="container-icon"
       >
@@ -29,6 +34,7 @@
           color: #fff;
           outline: none;
           font-size: 1.3rem;
+          z-index: 999;
           border: none;
           border-bottom: solid #505050 2px;
           height: 80%;
@@ -47,13 +53,13 @@
 
   <div class="main-search-container" *ngIf="searchFilter.length > 0">
     <div
-      *ngFor="let item of searchFilter; let i = index"
+      *ngFor="let item of searchFilter.slice(0, 4); let i = index"
       class="search-container"
       (click)="adicionarItem(item)"
     >
-      <div style="width: 100%" class="container-content">
+      <div class="container-content">
         <img src="{{ item.urlToImage }}" alt="Image" />
-        <div>
+        <div class="container-text">
           <div>{{ item.title }}</div>
           <div>
             {{

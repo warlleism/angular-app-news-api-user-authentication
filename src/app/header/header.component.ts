@@ -1,4 +1,10 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  Renderer2,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { NewsData } from '../interfaces/INewsData';
 import { GetNewsService } from '../services/get-news.service';
@@ -14,8 +20,25 @@ export class HeaderComponent {
   constructor(
     private newsInteractionService: SetDetailService,
     private router: Router,
-    private getNewsService: GetNewsService
+    private getNewsService: GetNewsService,
+    private el: ElementRef
   ) {}
+
+  @HostListener('document:click', ['$event'])
+  handleClick(event: Event) {
+    const element = document.getElementsByClassName('input-icon');
+    let data1 = element[0];
+    let data2 = event.target as HTMLElement;
+
+    if (data1?.className !== data2?.className) {
+      if (data2?.className.includes('ng-valid')) {
+        this.expandSearch(true);
+      } else {
+        this.expandSearch(false);
+      }
+    }
+  }
+
   private data: any[] = [];
   isLogin: boolean = false;
   isSearchExpanded: boolean = false;
@@ -67,8 +90,8 @@ export class HeaderComponent {
     this.newsInteractionService.handleNewsInteraction(newsItem);
   }
 
-  expandSearch() {
-    this.isSearchExpanded = !this.isSearchExpanded;
+  expandSearch(bool: boolean) {
+    this.isSearchExpanded = bool;
     const inputElement = document.getElementById('input');
     if (inputElement) {
       inputElement.style.display = this.isSearchExpanded ? 'block' : 'none';
