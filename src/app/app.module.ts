@@ -16,6 +16,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.state';
 import { DetailComponent } from './detail/detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DetailComponent } from './detail/detail.component';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     MatIconModule,
+    FormsModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
     StoreModule.forRoot({ app: appReducer }),

@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   authorizedLogin = false;
+
   loginForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],

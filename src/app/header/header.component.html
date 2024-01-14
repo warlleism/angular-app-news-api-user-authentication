@@ -7,11 +7,11 @@
     </h1>
     <div [ngClass]="{ 'expanded-search': isSearchExpanded }" class="input-icon">
       <div
+        (click)="expandSearch()"
         [ngClass]="{ 'expanded-icon': isSearchExpanded }"
         class="container-icon"
       >
         <mat-icon
-          (click)="expandSearch()"
           style="font-size: 1.7rem"
           aria-hidden="false"
           aria-label="Example home icon"
@@ -20,6 +20,8 @@
       </div>
       <input
         type="text"
+        [(ngModel)]="search"
+        (input)="searchNews()"
         style="
           background-color: #242424;
           display: none;
@@ -41,5 +43,27 @@
   </div>
   <div class="container-title">
     <h1>Three Word News</h1>
+  </div>
+
+  <div class="main-search-container" *ngIf="searchFilter.length > 0">
+    <div
+      *ngFor="let item of searchFilter; let i = index"
+      class="search-container"
+      (click)="adicionarItem(item)"
+    >
+      <div style="width: 100%" class="container-content">
+        <img src="{{ item.urlToImage }}" alt="Image" />
+        <div>
+          <div>{{ item.title }}</div>
+          <div>
+            {{
+              item.description.length > 100
+                ? item.description.slice(0, 100) + "..."
+                : item.description
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

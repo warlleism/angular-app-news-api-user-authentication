@@ -15,4 +15,5 @@ export class GetNewsService {
   getNews(): Observable<NewsData> {
     return this.http.get<NewsData>(this.apiUrl);
   }
+
 }

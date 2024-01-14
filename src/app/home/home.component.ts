@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { GetNewsService } from '../services/get-news.service';
 import { NewsData } from '../interfaces/INewsData';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -12,6 +12,7 @@ import { SetDetailService } from '../services/set-detail.service';
 })
 export class HomeComponent {
   data: NewsData | undefined;
+  isDataLoaded: boolean = false;
 
   constructor(
     private getNewsService: GetNewsService,
@@ -36,10 +37,8 @@ export class HomeComponent {
           }
         });
 
-        setTimeout(() => {
-          this.data = response;
-          this.spinner.hide();
-        }, 600);
+        this.data = response;
+        this.spinner.hide();
       });
     }
   }
