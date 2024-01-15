@@ -1,14 +1,6 @@
-import {
-  Component,
-  Input,
-  Renderer2,
-  ElementRef,
-  HostListener,
-} from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewsData } from '../interfaces/INewsData';
 import { GetNewsService } from '../services/get-news.service';
-import { Observable } from 'rxjs';
 import { SetDetailService } from '../services/set-detail.service';
 
 @Component({
@@ -23,6 +15,11 @@ export class HeaderComponent {
     private getNewsService: GetNewsService,
     private el: ElementRef
   ) {}
+
+  private data: any[] = [];
+  isSearchExpanded: boolean = false;
+  search: string = '';
+  searchFilter: any[] = [];
 
   @HostListener('document:click', ['$event'])
   handleClick(event: Event) {
@@ -39,20 +36,7 @@ export class HeaderComponent {
     }
   }
 
-  private data: any[] = [];
-  isLogin: boolean = false;
-  isSearchExpanded: boolean = false;
-  search: string = '';
-  searchFilter: any[] = [];
-
   ngOnInit(): void {
-    let isLogin = localStorage.getItem('login');
-    if (isLogin === 'sim') {
-      this.isLogin = true;
-    } else {
-      this.isLogin = false;
-    }
-
     if (this.data.length === 0) {
       this.getNewsService.getNews().subscribe((response: any) => {
         this.data = response.articles;
@@ -64,21 +48,14 @@ export class HeaderComponent {
     const cleanSearchTerm = this.removeSpecialChars(
       this.search.trim().toLowerCase()
     );
-
     const filteredData = this.data.filter((news) => {
       const cleanTitle = this.removeSpecialChars(news.title.toLowerCase());
       return cleanTitle.includes(cleanSearchTerm);
     });
-
     this.searchFilter = filteredData;
   }
-
   removeSpecialChars(str: string) {
     return str.replace(/[^\w\s]/g, '');
-  }
-
-  loginClick() {
-    this.router.navigate(['/login']);
   }
 
   logOutClick() {

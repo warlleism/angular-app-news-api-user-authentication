@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.state';
 import { DetailComponent } from './detail/detail.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     DetailComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

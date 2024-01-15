@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
     this.spinner.show();
     if (username === 'warlleism' && password === '123') {
       localStorage.setItem('login', 'sim');
-      this.router.navigate(['/home']);
       setTimeout(() => {
+        this.router.navigate(['/home']);
         this.spinner.hide();
       }, 2000);
     } else {

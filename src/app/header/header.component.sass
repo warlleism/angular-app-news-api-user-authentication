@@ -11,7 +11,7 @@
     flex-direction: column
     align-self: center
     position: absolute
-    height: 70vh
+    height: 60vh
     top: 60px
     overflow: hidden
     width: 900px
@@ -25,6 +25,9 @@
       width: 100%
       height: 96%
       cursor: pointer
+
+      @media screen and (max-width: 412px)
+        display: none
 
       .container-content
         display: flex
@@ -78,6 +81,9 @@
     overflow: hidden
     transition: 0.5s
 
+    @media screen and (max-width: 640px)
+      display: none
+
   .expanded-search
     width: 50%
     background: #242424
@@ -93,6 +99,12 @@
     background: #000000de
     height: 60px
     box-shadow: 1px 1px 2px 2px #00000038
+
+    @media screen and (max-width: 1200px)
+      padding: 0px 80px
+
+    @media screen and (max-width: 408px)
+      padding: 0px 20px
 
     h1
       color: #ffff
@@ -120,3 +132,6 @@
     font-size: 4.5rem
     color: rgba(0, 0, 0, 0.87)
     text-transform: uppercase
+
+    @media screen and (max-width: 498px)
+      font-size: 3rem
