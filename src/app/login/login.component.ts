@@ -29,15 +29,15 @@ export class LoginComponent implements OnInit {
 
   initializeForm() {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['admin', Validators.required],
+      password: ['admin', Validators.required],
     });
   }
 
   loginClick() {
     const { username, password } = this.loginForm.value;
     this.spinner.show();
-    if (username === 'warlleism' && password === '123') {
+    if (username && password) {
       localStorage.setItem('login', 'sim');
       setTimeout(() => {
         this.router.navigate(['/home']);
